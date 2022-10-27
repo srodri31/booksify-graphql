@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./src/index.js",
     "start:dev": "nodemon ./src/index.js",
-    "db:migrate": "npx knex migrate:latest --knexfile src/config/knexfile.js"
+    "db:migrate": "npx knex migrate:latest --knexfile src/config/knexfile.js",
+    "db:seed": "npx knex seed:run --knexfile src/config/knexfile.js"
   },
   "repository": {
     "type": "git",
