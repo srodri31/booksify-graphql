@@ -13,6 +13,7 @@ exports.up = function (knex) {
     table.timestamps(true, true)
   }).createTable("book", table => {
     table.increments('id').unique()
+    table.string('title').notNullable()
     table.string('published_on').notNullable()
     table.string('editorial').notNullable()
     table.string('description')
@@ -68,10 +69,10 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-  return knex.schema.dropTable("library")
-    .dropTable("book")
-    .dropTable("author")
-    .dropTable("genre")
+  return knex.schema.dropTable("book_author")
     .dropTable("book_genre")
-    .dropTable("book_author")
+    .dropTable("genre")
+    .dropTable("author")
+    .dropTable("book")
+    .dropTable("library")
 };
